@@ -1,1 +1,34 @@
-<p>converter works!</p>
+<div class="converter">
+  <div class="converter__group">
+    <input
+      class="converter__input"
+      type="text"
+      [(ngModel)]="amount1"
+      (change)="handleAmount1Change(+getValue($event))"
+    >
+    <select
+      class="converter__select"
+      [value]="currency1"
+      (change)="handleCurrency1Change(getValue($event))"
+    >
+      <option *ngFor="let currency of currencies">{{currency}}</option>
+    </select>
+  </div>
+  <div class="converter__group">
+    <input
+      class="converter__input"
+      type="text"
+      [(ngModel)]="amount2"
+      (change)="handleAmount2Change(+getValue($event))"
+    >
+    <select
+      class="converter__select"
+      [value]="currency2"
+      (change)="handleCurrency2Change(getValue($event))"
+    >
+      <option *ngFor="let currency of currencies">{{currency}}</option>
+    </select>
+  </div>
+
+  <p class="converter__text">Click anywhere to convert!</p>
+</div>
